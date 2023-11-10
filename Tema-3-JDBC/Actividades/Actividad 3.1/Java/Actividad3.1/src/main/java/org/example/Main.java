@@ -14,6 +14,5 @@ public class Main {
         gestionadorDeConsultas.Ejercicio7();
         gestionadorDeConsultas.Ejercicio8();
         gestionadorDeConsultas.Ejercicio9();
-
     }
 }

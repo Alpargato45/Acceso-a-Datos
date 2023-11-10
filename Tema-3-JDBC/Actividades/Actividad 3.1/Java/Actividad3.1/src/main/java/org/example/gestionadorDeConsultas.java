@@ -6,7 +6,6 @@ public class gestionadorDeConsultas {
     private static final String URL = "jdbc:postgresql://localhost:5432/empleados";
     private static final String USER = "postgres";
     private static final String PASSWORD = "patata";
-
     public void llamarBaseDatos(String sql, String mensaje) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -26,6 +25,8 @@ public class gestionadorDeConsultas {
                     }
                     System.out.println();
                 }
+                conn.close();
+                rs.close();
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -46,19 +47,15 @@ public class gestionadorDeConsultas {
     public void Ejercicio5() {
         llamarBaseDatos("SELECT empleado.*, departamento.nombre AS nombre_departamento\n" + "FROM empleado\n" + "JOIN departamento ON empleado.id_departamento = departamento.id;\n","\n-----------------\n\tLISTAR EMPLEADOS Y DATOS DE DONDE TRABAJA CADA UNO\n-----------------");
     }
-
     public void Ejercicio6() {
         llamarBaseDatos("SELECT empleado.*, departamento.nombre AS nombre_departamento\n" + "FROM empleado\n" + "JOIN departamento ON empleado.id_departamento = departamento.id\n" + "ORDER BY nombre_departamento, apellido1, nombre\n","\n-----------------\n\tLISTAR TODOS LOS EMPLEADOS Y DATOS DE DEPARTAMENTO ORDENADO\n-----------------");
     }
-
     public void Ejercicio7() {
         llamarBaseDatos("SELECT departamento.id, departamento.nombre\n" + "FROM departamento\n" + "WHERE departamento.id IN (SELECT DISTINCT id_departamento FROM empleado)","\n-----------------\n\tLISTAR IDENTIFICADOR Y NOMBRE DE DEPARTAMENTO CON EMPLEADOS\n-----------------");
     }
-
     public void Ejercicio8() {
         llamarBaseDatos("SELECT departamento.nombre\n" + "FROM departamento\n" + "JOIN empleado ON departamento.id = empleado.id_departamento\n" + "WHERE empleado.nif = '38382980M'","\n-----------------\n\tLISTAR NOMBRE DEL DEPARTAMENTO DONDE TRABAJA EL NIF 38382980M\n-----------------");
     }
-
     public void Ejercicio9() {
         llamarBaseDatos("SELECT SUM(presupuesto) FROM departamento","\n-----------------\n\tLISTAR LA SUMA DEL PRESUPUESTO DE TODOS LOS DEPARTAMENTOS\n-----------------");
     }
