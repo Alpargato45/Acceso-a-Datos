@@ -1,5 +1,6 @@
 import entradadatos.EntradaDatos;
 
+import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.*;
@@ -45,6 +46,25 @@ public class Main implements Serializable {
         }
     }
 
+    public static void convertirObjetoAXML(ArrayList<Jugador> listaJugadores) {
+        try (XMLEncoder encoder = new XMLEncoder(new FileOutputStream("jugadores.xml"))) {
+            encoder.writeObject(listaJugadores);
+            System.out.println("Lista de jugadores convertida a XML con éxito.");
+        } catch (IOException ex) {
+            System.out.println("Error al convertir la lista de jugadores a XML: " + ex.getMessage());
+        }
+    }
+
+    public static void convertirXMLAObjeto(ArrayList<Jugador> listaJugadores) {
+        try (XMLDecoder decoder = new XMLDecoder(new FileInputStream("jugadores.xml"))) {
+            listaJugadores.clear();
+            listaJugadores.addAll((ArrayList<Jugador>) decoder.readObject());
+            System.out.println("Lista de jugadores cargada desde XML con éxito.");
+        } catch (IOException ex) {
+            System.out.println("Error al cargar la lista de jugadores desde XML: " + ex.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
 
         int menu = 0;
@@ -71,15 +91,16 @@ public class Main implements Serializable {
             System.out.println("1. Crear Jugador");
             System.out.println("2. Mostrar Lista actual de Jugadores");
             System.out.println("3. Buscar jugador por Nombre, apodo y dorsal");
-            System.out.println("4.Cambiar de obj a XML");
-            System.out.println("5. Salir");
+            System.out.println("4. Convertir de obj a XML");
+            System.out.println("5. Convertir de XML a obj");
+            System.out.println("6. Salir");
             do {
                 try {
                     menu = new Scanner(System.in).nextInt();
                 } catch (InputMismatchException ex) {
                     System.out.println("caracter introducido no válido");
                 }
-            } while (menu < 1 || menu > 5);
+            } while (menu < 1 || menu > 6);
 
             switch (menu) {
                 case 1 -> {
@@ -95,19 +116,15 @@ public class Main implements Serializable {
 
                     buscarJugador(listaJugadores, nombre,apodo,dorsal);
                 }
-                case 4-> {
-                    try {
-                        XMLEncoder encoder = new XMLEncoder(new FileOutputStream("jugadores.xml"));
-                        encoder.writeObject(listaJugadores.toString());
-                        encoder.close();
-                        System.out.println("Lista de jugadores convertida a XML con éxito.");
-                    } catch (IOException ex) {
-                        System.out.println("Error al convertir la lista de jugadores a XML: " + ex.getMessage());
-                    }
+                case 4 -> {
+                    convertirObjetoAXML(listaJugadores);
+                }
+                case 5 -> {
+                    convertirXMLAObjeto(listaJugadores);
                 }
             }
 
-        } while (menu != 5);
+        } while (menu != 6);
 
         try (ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream("jugadores.obj"))) {
             salida.writeObject(listaJugadores);

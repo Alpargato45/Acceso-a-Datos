@@ -1,4 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="17.0.8" class="java.beans.XMLDecoder">
- <string>[Jugador{nombre=&apos;123412&apos;, apodo=&apos;1234&apos;, puesto=1324, dorsal=1324, descripcion=&apos;24&apos;}]</string>
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="Jugador">
+    <void property="apodo">
+     <string>1234</string>
+    </void>
+    <void property="descripcion">
+     <string>24</string>
+    </void>
+    <void property="dorsal">
+     <int>1324</int>
+    </void>
+    <void property="nombre">
+     <string>123412</string>
+    </void>
+    <void property="puesto">
+     <string>1324</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Jugador">
+    <void property="apodo">
+     <string>123</string>
+    </void>
+    <void property="descripcion">
+     <string>123</string>
+    </void>
+    <void property="dorsal">
+     <int>123</int>
+    </void>
+    <void property="nombre">
+     <string>123</string>
+    </void>
+    <void property="puesto">
+     <string>123</string>
+    </void>
+   </object>
+  </void>
+ </object>
 </java>
