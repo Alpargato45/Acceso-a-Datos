@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.8" class="java.beans.XMLDecoder">
+ <string>[Jugador{nombre=&apos;123412&apos;, apodo=&apos;1234&apos;, puesto=1324, dorsal=1324, descripcion=&apos;24&apos;}]</string>
+</java>
