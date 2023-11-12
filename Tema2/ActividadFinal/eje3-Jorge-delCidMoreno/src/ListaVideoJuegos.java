@@ -1,25 +1,55 @@
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 import java.util.ArrayList;
 
-@XmlRootElement(name="list")
-@XmlType(propOrder={"videoJuegos"})
-public class ListaVideoJuegos {
+class ListaVideoJuegos extends DefaultHandler {
+    private ArrayList<Videojuego> listaVideoJuegos;
+    private Videojuego videojuego;
+    private String currentElement;
 
-    private ArrayList<Videojuego> listaVideoJuegos = new ArrayList<>();
-
-    public ListaVideoJuegos() {
-    }
-
-    @XmlElementWrapper(name="list")
-    @XmlElement(name="videojuego")
-    public ArrayList<Videojuego> getVideoJuegos() {
+    public ArrayList<Videojuego> getListaVideoJuegos() {
         return listaVideoJuegos;
     }
 
-    public void setListaVideojuegos(ArrayList<Videojuego> listaVideojuegos) {
-        this.listaVideoJuegos = listaVideojuegos;
+    @Override
+    public void startDocument() throws SAXException {
+        listaVideoJuegos = new ArrayList<>();
+    }
+
+    @Override
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+        currentElement = qName;
+        if ("item".equals(qName)) {
+            videojuego = new Videojuego();
+        }
+    }
+
+    @Override
+    public void characters(char[] ch, int start, int length) throws SAXException {
+        String value = new String(ch, start, length).trim();
+        if (!value.isEmpty()) {
+            switch (currentElement) {
+                case "Título":
+                    videojuego.setTítulo(value);
+                    break;
+                case "Semilla":
+                    videojuego.setSemilla(value);
+                    break;
+                case "Palabras_clave":
+                    videojuego.setPalabras_clave(value);
+                    break;
+                case "Estado":
+                    videojuego.setEstado(value);
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void endElement(String uri, String localName, String qName) throws SAXException {
+        if ("item".equals(qName)) {
+            listaVideoJuegos.add(videojuego);
+        }
     }
 }
