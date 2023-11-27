@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.EmpleadoEntity" table="empleado" schema="public" catalog="empleados">
+        <id name="id" column="id"/>
+        <property name="nif" column="nif"/>
+        <property name="nombre" column="nombre"/>
+        <property name="apellido1" column="apellido1"/>
+        <property name="apellido2" column="apellido2"/>
+        <property name="idDepartamento" column="id_departamento"/>
+    </class>
+</hibernate-mapping>
