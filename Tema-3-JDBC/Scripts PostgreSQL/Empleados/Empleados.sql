@@ -1,4 +1,4 @@
-CREATE DATABASE "Empleados"
+CREATE DATABASE EmpleadosInstituto
 CREATE TABLE  departamentos
 (depno INTEGER PRIMARY KEY,
 nombre VARCHAR(14),
