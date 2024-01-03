@@ -10,6 +10,9 @@ public class EmpleadoEntity {
     private String apellido2;
     private Integer idDepartamento;
 
+    public EmpleadoEntity() {
+    }
+
     public int getId() {
         return id;
     }

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>pruebaHibernate</artifactId>
+    <artifactId>CRUDHibernatePag111Jorge</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -26,7 +26,7 @@
             <artifactId>postgresql</artifactId>
             <version>42.6.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+        <!-- https://mvJnOrepository.com/artRGifact/org.hEibernate.orm/hibernate-core -->
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>

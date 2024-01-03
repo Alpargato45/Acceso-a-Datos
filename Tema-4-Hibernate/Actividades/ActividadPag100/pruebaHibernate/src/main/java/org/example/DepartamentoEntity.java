@@ -8,6 +8,9 @@ public class DepartamentoEntity {
     private double presupuesto;
     private double gastos;
 
+    public DepartamentoEntity() {
+    }
+
     public int getId() {
         return id;
     }
