@@ -4,15 +4,18 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:postgresql://localhost:5432/ACDATJPA</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/HibernatePrueba</property>
     <property name="connection.driver_class">org.postgresql.Driver</property>
-      <property name="connection.username">postgres</property>
-      <property name="connection.password">patata</property>
+    <property name="connection.username">postgres</property>
+    <property name="connection.password">patata</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-      <mapping class="org.example.JPAEntity.PaisesEntity"/>
-      <mapping class="org.example.JPAEntity.ContinenteEntity"/>
-      <mapping class="org.example.JPAEntity.PersonaEntity"/>
-      <!-- <property name="connection.username"/> -->
+    <mapping resource="AgenciasEntity.hbm.xml"/>
+      <mapping resource="ClientesEntity.hbm.xml"/>
+      <mapping resource="ClientesDestinosEntity.hbm.xml"/>
+      <mapping resource="DestinosEntity.hbm.xml"/>
+      <mapping resource="DestinosAgenciasEntity.hbm.xml"/>
+    <mapping class="org.acdat.entitiesJPA.VuelosJPA"/>
+    <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 
     <!-- DB schema will be updated if needed -->

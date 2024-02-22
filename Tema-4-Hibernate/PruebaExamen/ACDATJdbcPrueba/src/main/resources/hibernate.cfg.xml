@@ -4,16 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:postgresql://localhost:5432/ACDATJPA</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/TuViajeFindeCurso</property>
     <property name="connection.driver_class">org.postgresql.Driver</property>
-      <property name="connection.username">postgres</property>
-      <property name="connection.password">patata</property>
+    <property name="connection.username">postgres</property>
+    <property name="connection.password">patata</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-      <mapping class="org.example.JPAEntity.PaisesEntity"/>
-      <mapping class="org.example.JPAEntity.ContinenteEntity"/>
-      <mapping class="org.example.JPAEntity.PersonaEntity"/>
-      <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
+    <mapping class="org.acdat.jpa.AgenciaJPAEntity"/>
+    <mapping class="org.acdat.jpa.ClienteJPAEntity"/>
+    <mapping class="org.acdat.jpa.VueloJPAEntity"/>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

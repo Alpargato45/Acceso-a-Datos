@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.acdat.entitiesXML.VuelosEntity" table="vuelos" schema="public" catalog="HibernatePrueba">
+        <id name="vueloId" column="vuelo_id"/>
+        <property name="origen" column="origen"/>
+        <property name="destino" column="destino"/>
+        <property name="fechaSalida" column="fecha_salida"/>
+        <property name="fechaLlegada" column="fecha_llegada"/>
+        <property name="costo" column="costo"/>
+    </class>
+</hibernate-mapping>

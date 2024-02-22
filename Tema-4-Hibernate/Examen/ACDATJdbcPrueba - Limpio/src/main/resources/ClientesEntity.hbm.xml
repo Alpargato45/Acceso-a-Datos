@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.acdat.entitiesXML.ClientesEntity" table="clientes" schema="public" catalog="HibernatePrueba">
+        <id name="clienteId" column="cliente_id"/>
+        <property name="nombreCliente" column="nombre_cliente"/>
+        <property name="correoCliente" column="correo_cliente"/>
+        <property name="telefonoCliente" column="telefono_cliente"/>
+    </class>
+</hibernate-mapping>
